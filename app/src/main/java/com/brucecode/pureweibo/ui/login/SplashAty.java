@@ -20,6 +20,7 @@ public class SplashAty extends BaseActivity {
         SplashAtyBinding splashAtyBinding = DataBindingUtil.setContentView(this, R.layout.splash_aty);
     }
 
+
     @Override
     protected void initData() {
 

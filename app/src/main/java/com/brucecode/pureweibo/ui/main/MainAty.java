@@ -2,7 +2,7 @@ package com.brucecode.pureweibo.ui.main;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 
 import com.brucecode.pureweibo.R;
 import com.brucecode.pureweibo.base.BaseActivity;
@@ -15,11 +15,9 @@ import com.brucecode.pureweibo.databinding.MainAtyBinding;
 public class MainAty extends BaseActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         MainAtyBinding mainAtyBinding = DataBindingUtil.setContentView(this, R.layout.main_aty);
-
     }
 
     @Override

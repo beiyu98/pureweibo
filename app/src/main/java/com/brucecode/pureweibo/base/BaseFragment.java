@@ -21,6 +21,7 @@ public abstract class BaseFragment extends Fragment {
         initEvent();
     }
 
+
     protected abstract void initData();
 
     protected abstract void initView();
