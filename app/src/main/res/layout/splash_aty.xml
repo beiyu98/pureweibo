@@ -2,17 +2,38 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/splash_aty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
         tools:context=".ui.login.SplashAty">
 
         <ImageView
+            android:id="@+id/splash_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"/>
-    </FrameLayout>
+            android:layout_marginTop="150dp"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/splash_welcome"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/splash_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            tools:text="蜡笔小新"/>
+    </LinearLayout>
 
 </layout>

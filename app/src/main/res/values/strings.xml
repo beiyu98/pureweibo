@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PureWeibo</string>
+    <string name="splash_welcome">欢迎回来</string>
+    <string name="more">更多</string>
 </resources>

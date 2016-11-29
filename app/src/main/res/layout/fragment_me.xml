@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.brucecode.pureweibo.bean.User"/>
+
+        <variable
+            name="fragment"
+            type="com.brucecode.pureweibo.ui.main.fragment.MeFragment"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/me_app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/me_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:title="@{user.name}"
+                app:titleTextColor="@android:color/white"/>
+
+            <RelativeLayout
+                android:id="@+id/me_head_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/me_head"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    tools:src="@mipmap/ic_launcher"/>
+
+                <TextView
+                    android:id="@+id/me_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/me_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@{user.description}"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    tools:text="两个丑比的爱情也可以美哒哒"/>
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
+
+</layout>
