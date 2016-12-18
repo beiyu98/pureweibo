@@ -35,5 +35,5 @@
             android:textColor="@android:color/white"
             tools:text="蜡笔小新"/>
     </LinearLayout>
-
 </layout>
+

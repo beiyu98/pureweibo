@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.brucecode.pureweibo.R;
@@ -25,27 +26,34 @@ import com.sina.weibo.sdk.exception.WeiboException;
 
 public class SplashAty extends BaseActivity {
 
+    private static final String TAG = "SplashAty";
+
     private AuthInfo mAuthInfo;
     private Oauth2AccessToken mAccessToken;
     private SsoHandler mSsoHandler;
 
+    private SplashAtyBinding mSplashAtyBinding;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SplashAtyBinding splashAtyBinding = DataBindingUtil.setContentView(this, R.layout.splash_aty);
+        mSplashAtyBinding= DataBindingUtil.setContentView(this, R.layout.splash_aty);
+
+        initData();
+        initView();
+        initEvent();
     }
 
-    @Override
+
     protected void initData() {
        checkUserState();
     }
 
-    @Override
+
     protected void initView() {
 
     }
 
-    @Override
     protected void initEvent() {
 
     }
@@ -55,10 +63,12 @@ public class SplashAty extends BaseActivity {
      */
     private void checkUserState() {
         String access_token = TokenUtil.readToken(this).getToken();
+        Log.e(TAG,"access_token:"+access_token);
         if (TextUtils.isEmpty(access_token)) {
            login();
         } else {
             startActivity(new Intent(this, MainAty.class));
+            finish();
         }
     }
 
@@ -86,6 +96,7 @@ public class SplashAty extends BaseActivity {
             if (mAccessToken.isSessionValid()) {
                 TokenUtil.saveToken(getApplicationContext(),mAccessToken);
                 startActivity(new Intent(SplashAty.this,MainAty.class));
+                finish();
             } else {
                 String code = values.getString("code");
                 Toast.makeText(getApplicationContext(), "wrong:"+code, Toast.LENGTH_LONG).show();

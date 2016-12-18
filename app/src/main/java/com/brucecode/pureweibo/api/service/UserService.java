@@ -12,6 +12,6 @@ import retrofit2.http.Query;
 
 public interface UserService {
 
-    @GET("2/users/show.json")
-    Call<User> getUserInfo(@Query("access_token") String access_token, @Query("uid") String uid);
+    @GET("/2/users/show.json")
+    Call<User> getUserInfo(@Query("access_token") String access_token,@Query("uid") long uid);
 }

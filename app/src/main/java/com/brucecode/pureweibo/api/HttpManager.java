@@ -1,7 +1,6 @@
 package com.brucecode.pureweibo.api;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -9,18 +8,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class HttpManager {
-
-    private static final String BASE_URL = "https://api.douban.com/v2/movie/";
+    public static final String BASE_URL = "https://api.weibo.com/";
     private volatile static HttpManager mInstance;
     private static Retrofit mRetrofit;
 
     private HttpManager() {
-        mRetrofit = new Retrofit.Builder()
-                .baseUrl(HttpManager.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
     }
+
 
     public static HttpManager getInstance() {
         if (mInstance == null) {
@@ -31,7 +25,12 @@ public class HttpManager {
         return mInstance;
     }
 
-    public <T> T createService(Class<T> apiService){
-        return mRetrofit.create(apiService);
+    public <T> T createService(String baseUrl, Class<T> serviceClazz) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(serviceClazz);
     }
 }

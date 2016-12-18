@@ -8,19 +8,14 @@
         <variable
             name="user"
             type="com.brucecode.pureweibo.bean.User"/>
-
-        <variable
-            name="fragment"
-            type="com.brucecode.pureweibo.ui.main.fragment.MeFragment"/>
     </data>
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/me_app_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -33,7 +28,6 @@
                 app:titleTextColor="@android:color/white"/>
 
             <RelativeLayout
-                android:id="@+id/me_head_bg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary">
@@ -47,19 +41,76 @@
                     tools:src="@mipmap/ic_launcher"/>
 
                 <TextView
-                    android:id="@+id/me_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/me_head"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="20dp"
-                    android:text="@{user.description}"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
+                    android:text="@{user.description}"
                     tools:text="两个丑比的爱情也可以美哒哒"/>
             </RelativeLayout>
-        </android.support.design.widget.AppBarLayout>
-    </LinearLayout>
 
+            <LinearLayout
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/me_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:text='@{"粉丝 "+user.followers_count}'
+                    tools:text="粉丝 100"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/me_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:text='@{"好友"+user.friends_count}'
+                    tools:text="好友100"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/me_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:text='@{"微博"+user.statuses_count}'
+                    tools:text="微博100"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/me_head"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:text='@{"收藏"+user.favourites_count}'
+                    tools:text="收藏100"/>
+            </LinearLayout>
+        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>
